@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <h2>Start and Stop</h2>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+   
+    let val = ''
+    document.getElementById("start").addEventListener('click', function(){
+        const test = setInterval( function() {
+            val = test
+        console.log("test",Date.now(),"hi");
+        val
+    }, 1000);
+    })
+
+    document.getElementById("stop").addEventListener('click', function(){
+        clearInterval(val)
+    })
+    
+</script>
+</html>

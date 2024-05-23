@@ -9,3 +9,16 @@ const clock = document.getElementById("clock")
 // static time
 let date = new Date()
 clock.innerHTML = date.toLocaleTimeString();
+
+// let val = ''
+// document.getElementById("start").addEventListener('click', function(){
+//     const test = setInterval( function() {
+//         let date = new Date()
+//         clock.innerHTML = date.toLocaleTimeString();
+//         val = test
+// }, 1000);
+// })
+
+// document.getElementById("stop").addEventListener('click', function(){
+//     clearInterval(val)
+// })

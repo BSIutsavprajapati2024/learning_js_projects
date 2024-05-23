@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <h2>Images</h2>
+    <div>
+        <ul id="images">
+            <li><img  width="200px" id="photoshop" src="/home/botspot4/utsav_workspace/Projects/custom_addons/vehicle_management_system/static/images/bg_1.jpg" alt="photoshop"></li>
+            <li><img  width="200px" id="japan" src="/home/botspot4/utsav_workspace/Projects/custom_addons/vehicle_management_system/static/images/bg_2.jpg" alt=""></li>
+            <li><img  width="200px" id="river" src="/home/botspot4/utsav_workspace/Projects/custom_addons/vehicle_management_system/static/images/bg_3.jpg" alt=""></li>
+            <li><img  width="200px" id="owl" src="/home/botspot4/utsav_workspace/Projects/custom_addons/vehicle_management_system/static/images/car-1.jpg" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // // not good approach
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }
+
+    //attachEvent() - not used in nowdays
+    // type, timestamp, defaultPrevendted, target, toElement, srcElement, currentTarget
+    // clientx, clienty, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // document.getElementById("owl").addEventListener('click', function(e){
+    //     console.log(e);
+    //     alert("owl clicked again")
+    // },false)
+
+    // // bubbling travels from bottom to top, and capturing travels from top to bottom. by default it false but whenever it is true then capturing is active.
+    // document.getElementById("images").addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // },false)
+
+    // document.getElementById("owl").addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation(); //it will not call top element
+    // },false)
+
+    // document.getElementById("google").addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     console.log("google clicked");
+    //     e.stopPropagation();
+    // })
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e,e.target,e.target.parentNode,e.target.tagName);
+        if (e.target.tagName === "IMG"){
+            console.log(e.target.id);
+            let remove_it = e.target.parentNode;
+            remove_it.remove();
+        }
+        // remove_it.parentNode.removeChild(remove_it);
+        })
+
+
+</script>
+</html>
+
+<!-- # Notes -->
+<!-- Js - Synchronous and single thread language -->
+<!-- blocking code and Non blocking code  = Synchronous and Non Synchronous -->
