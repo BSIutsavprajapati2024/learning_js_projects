@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Edit & Remove</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(name){
+        const new_li = document.createElement("li")
+        // new_li.innerHTML = name
+        new_li.innerHTML = `${name}`
+        document.querySelector(".language").appendChild(new_li)
+
+    }
+    addLanguage("python")
+    addLanguage("java")
+
+    function addOptiLanguage(name){
+        const new_li = document.createElement("li")
+        new_li.appendChild(document.createTextNode(name))
+        document.querySelector(".language").appendChild(new_li)
+
+    }
+    addOptiLanguage("c++")
+
+
+    // Edit 
+    const val = document.querySelector("li:nth-child(2)")
+    // val.innerHTML = "Swift"
+    const new_val = document.createElement("li")
+    new_val.textContent = "Swift"
+    val.replaceWith(new_val)
+
+    //edit
+    const fist_element = document.querySelector("li:first-child")
+    fist_element.outerHTML = "<li>Odoo</li>"
+
+    //remove
+    const remove_element = document.querySelector("li:last-child")
+    remove_element.remove()
+
+</script>
+</html>
