@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+<script>
+    // //Lexical Scoping - function inside function
+    // function init() {
+    //     var name = "Mozilla"; 
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+    // function outer(){
+    //     let username = "test"
+    //     function inner(){
+    //         console.log(username);
+    //     }
+    //     inner()
+    // }
+    // outer()
+    // console.log(username);
+
+    // // Closure Scoping - it will return lexical scope with memory
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName;
+    // }
+    // const myFunc = makeFunc();
+    // myFunc();
+</script>
+
+<script>
+    function clickHandler(color){
+    return function(){
+        document.body.style.backgroundColor = `${color}`
+    }
+    }
+    document.getElementById("green").onclick = clickHandler("green")
+    document.getElementById("orange").onclick = clickHandler("orange")
+</script>
+
+</html>
