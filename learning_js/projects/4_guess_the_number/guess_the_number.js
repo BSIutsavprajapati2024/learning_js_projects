@@ -75,7 +75,7 @@ function displayMessage(message){
 }
 
 function endGame(){
-    user_input.vale = '';
+    user_input.value = '';
     user_input.setAttribute('disabled', '');
     p.classList.add('button');
     p.innerHTML = `<input type="submit" id="newGame" value="Start New Game" style="background-color: #04AA6D;
