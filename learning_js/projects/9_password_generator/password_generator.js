@@ -3,7 +3,7 @@ const lowerSet = "abcdefghijklmnopqrstuvwxyz"
 const numberSet = "1234567890"
 const symbolSet = "~!@#$%&()*+/^_"
 
-const passBox = document.getElementById("pass-box")
+var passBox = document.getElementById("pass-box")
 const totalChar = document.getElementById("total-char")
 const upperInput = document.getElementById("upper-case")
 const lowerInput = document.getElementById("lower-case")
@@ -27,14 +27,36 @@ const generatePassword = (password= "") => {
     if(symbolsInput.checked){
         password += getRandomData(symbolSet)
     }
-    console.log(password.length,totalChar.value);
     if(password.length < totalChar.value){
         return generatePassword(password)
     }
     password = password.slice(0,totalChar.value);
-    passBox.innerText = password;
-}
+    let span = document.createElement('span');
+    span.textContent = password;
+
+    let button = document.createElement('button')
+    button.textContent = 'Copy';
+    button.id = 'copy-button';
+
+    passBox.appendChild(span)
+
+    passBox.appendChild(button);
+
+    button.addEventListener( 
+        "click", () => { 
+            navigator.clipboard.writeText(button.textContent).then(() => { 
+                document.querySelector( 
+                    "#copy-button").innerHTML = "copied!"; 
+                setTimeout(() => { 
+                    document.querySelector( 
+                        "#copy-button").innerHTML = "copy"; 
+                }, 1000);
+            }); 
+        });
+    }
+
 document.getElementById("btn").addEventListener('click', function(){
+    passBox.innerHTML = ''
     generatePassword();
 })
 generatePassword();
