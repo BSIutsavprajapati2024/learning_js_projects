@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="notes_app.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="../main_index.html" aria-current="page">Home</a>
+        <a target="_blank" href="https://www.youtube.com"
+          >Youtube channel</a>
+    </nav>
+
+    <div class="container">
+    <div class="note">
+        <div class="btn">
+            <button id="addNote"><i class="fa fa-plus"></i><br>Add Note</button>
+        </div>
+        <div class="newNotes">
+        </div>
+    </div>
+    </div>
+
+    <div class="addForm">
+        <div class="head">
+            <h2>Add a Note</h2>
+            <button class="icon"><i class="fa fa-close"></i></button>
+        </div>
+        <div class="inputs">
+            <p>Title</p>
+            <input type="text" id="title" value="">
+            
+        </div>
+        <div class="inputs">
+            <p>Description</p>
+            <textarea rows="5px" cols="30" id="description" value=""></textarea>
+        </div>
+        <button id="addBtn">Add Note</button>
+    </div>
+  <script src="notes_app.js"></script>
+</body>
+</html>
