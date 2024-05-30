@@ -32,21 +32,9 @@ const generatePassword = (password= "") => {
         return generatePassword(password)
     }
     password = password.slice(0,totalChar.value);
-    console.log(password);
-    // let text = "Hello world!"; 
-    // let result = text.slice(4);
-    console.log(truncate(password,totalChar.value));
-    passBox.innerText = truncate(password,totalChar.value);
+    passBox.innerText = password;
 }
 document.getElementById("btn").addEventListener('click', function(){
     generatePassword();
 })
 generatePassword();
-function truncate(Str,num){
-    if(Str.length > num){
-        let subStr = Str.substring(0,num);
-        return subStr;
-    } else{
-        return Str;
-    }
-}
