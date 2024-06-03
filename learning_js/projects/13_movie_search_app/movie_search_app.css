@@ -116,3 +116,10 @@ nav a[aria-current='page'] {
     background-color: white;
     color: black;
   }
+
+h1{
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px; color: white; text-align: center;
+}

@@ -1,8 +1,3 @@
-// const APIURL = "https://cat-fact.herokuapp.com/facts"
-// const APIURL = "https://potterapi-fedeperin.vercel.app/en/books"
-// const APIURL = "https://potterapi-fedeperin.vercel.app/en/characters"
-// const APIURL = "https://potterapi-fedeperin.vercel.app/en/houses"
-// const APIURL = "https://potterapi-fedeperin.vercel.app/en/spells"
 const APIURL = "https://potterapi-fedeperin.vercel.app/en/books"
 
 const movieBox = document.querySelector("#movie-box")
@@ -11,7 +6,7 @@ const movieBox = document.querySelector("#movie-box")
 const getMovies = async(api,text="") => {
     const response = await fetch(api)   
     if(response.status !== 200){
-        console.log("not found")
+        alert("Data not found!!")
     } else{
         let data = await response.json()
         data = data.filter(x => x['title'].toLowerCase().includes(text.toLocaleLowerCase()));
@@ -21,6 +16,7 @@ const getMovies = async(api,text="") => {
 getMovies(APIURL,text="")
 
 const showMovies = (data) => {
+    if(data.length != 0){
     movieBox.innerHTML = ""
     data.forEach((item) => {
         const box = document.createElement("div")
@@ -39,12 +35,13 @@ const showMovies = (data) => {
             </p>
         </div>`
         movieBox.append(box)
-    }  
-) 
+    })
+    }else{
+        movieBox.innerHTML = `<h1>No Data Found!!!</h1>`
+    }
 }
 
 document.querySelector("#search").addEventListener("keyup", function(e){
-    console.log(e.target.value);
     if(e.target.value != ""){
         getMovies(APIURL,e.target.value)
     } else{
@@ -53,7 +50,6 @@ document.querySelector("#search").addEventListener("keyup", function(e){
 })
 
 document.querySelector("#search").addEventListener('search', function(){
-    console.log("clicked");
     document.querySelector("#search").value = ""
     getMovies(APIURL)
 })
