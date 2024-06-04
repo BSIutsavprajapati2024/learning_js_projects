@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast Notification</title>
+    <link rel="stylesheet" href="toast_notification.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+     -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <nav>
+    <a href="../main_index.html" aria-current="page">Home</a>
+    <a target="_blank" href="https://www.youtube.com"
+      >Youtube channel</a>
+  </nav>
+
+  <div class="buttons">
+    <button onclick="showToast(successMsg)">Success</button>
+    <button onclick="showToast(errorMsg)">Error</button>
+    <button onclick="showToast(invaliMsg)">Invalid</button>
+  </div>
+
+  <div id="toastBox">
+  </div>
+
+  <script>
+    let toastBox = document.getElementById("toastBox");
+    let successMsg = '<i class="fa fa-check-circle"></i> Successfully submitted'
+    let errorMsg = '<i class="fa fa-times-circle"></i> Please fix the error'
+    let invaliMsg = '<i class="fa fa-exclamation-circle"></i> Invalid input, check again try again'
+
+    function showToast(msg){
+    let toast = document.createElement("div");
+    toast.classList.add("toast");
+    toast.innerHTML = msg;
+    toastBox.appendChild(toast)
+    if(msg.includes('error')){
+      toast.classList.add("error");
+    }
+    if(msg.includes('Invalid')){
+      toast.classList.add("invalid");
+    }
+    setTimeout(()=>{
+      toast.remove();
+    },6000)
+    }
+  </script>
+
+  </body>
+</html>
