@@ -99,6 +99,7 @@ body{
 
 .error{
   animation: shake 0.1s linear 10;
+  background-color: red;
 }
 @keyframes shake {
   0%{
